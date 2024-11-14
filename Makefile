@@ -23,10 +23,9 @@ INCLUDES_DIR = .  # Points to the directory containing libft.h
 
 # Source files
 SRCS = ft_printf.c print_char.c print_hexa.c print_nbr.c print_ptr.c print_str.c print_unbr.c
-#BONUS_SRCS = 
+
 # Object files
 OBJS = $(SRCS:.c=.o)
-#BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 # all rule
 all: $(NAME)
@@ -39,10 +38,6 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
-#compiles the bonus
-#bonus: $(NAME) $(BONUS_OBJS)
-#	ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
-
 # Compile the object files
 %.o: %.c
 	$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -c $< -o $@
@@ -50,7 +45,6 @@ $(NAME): $(OBJS)
 # clean rule removes .o from srcs
 clean:
 	rm -rf $(OBJS) 
-#$(BONUS_OBJS)
 
 # fclean rule runs clean then removes libft.a
 fclean: clean 
@@ -58,7 +52,7 @@ fclean: clean
 
 # re rule runs fclean then runs make again
 re: fclean
-	make && make bonus
+	make
 
 # Avoid name clashes
 .PHONY: all clean fclean re bonus

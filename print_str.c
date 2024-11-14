@@ -19,6 +19,10 @@ int	print_str(char *str)
 	int	count;
 
 	count = 0;
+	if (!str)
+	{
+		return (write(1, "(null)", 6));
+	}
 	while (*str != '\0')
 	{
 		print_char(*str);
