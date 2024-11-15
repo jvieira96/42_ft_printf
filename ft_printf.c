@@ -24,7 +24,7 @@ int	ft_print_format(char specifier, va_list ap)
 	else if (specifier == 'd')
 		count = count + print_nbr(va_arg(ap, int));
 	else if (specifier == 'p')
-		count = count + print_ptr(va_arg(ap, unsigned int));
+		count = count + print_ptr(va_arg(ap, unsigned long));
 	else if (specifier == 'i')
 		count = count + print_nbr(va_arg(ap, int));
 	else if (specifier == 'u')
@@ -48,7 +48,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 			count = count + ft_print_format(*(++format), ap);
 		else
-			count = count + write (1, format, 1);
+			count = count + write(1, format, 1);
 		format++;
 	}
 	va_end(ap);

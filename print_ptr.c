@@ -45,8 +45,7 @@ int	print_ptr(unsigned long ptr)
 	{
 		return (write(1, "(nil)", 5));
 	}
-	count = count + write(1, "0", 1);
-	count = count + write(1, "x", 1);
+	count = count + write(1, "0x", 2);
 	count = count + print_recursive(ptr);
 	return (count);
 }
